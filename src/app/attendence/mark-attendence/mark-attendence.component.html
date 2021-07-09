@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <title>Mark Attendence</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-6"><input type="date" [(ngModel)]="date" (ngModelChange)="formUsers()"></div>
+            <div class="col-6"><button style="float: right;" (click)="saveAttendence()">Save</button></div>
+        </div> 
+
+        <div class="row pt-5">
+            <div class="col-10">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Number</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of currentAttendence.attendenceStatus;let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.number}}</td>
+                            <td>
+                                <select [(ngModel)]="user.presentStatus" (change)="checkStatus()">
+                                    <option disabled selected>--Select--</option>
+                                    <option [value]="1">Present</option>
+                                    <option [value]="0">Absent</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

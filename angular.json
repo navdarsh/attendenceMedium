@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "attendanceExample"
+    }
+  },
+  "defaultProject": "attendanceExample",
+  "cli": {
+    "analytics": "a6030f67-431e-430a-ab03-acff8c8f8adf"
+  }
 }

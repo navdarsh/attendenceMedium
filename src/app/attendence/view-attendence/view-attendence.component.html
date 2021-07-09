@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <title>View Attendence</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-6"><input type="date" (change)="getAttendence($event.target.value)"></div>
+        </div> 
+
+        <div class="row pt-5" *ngIf="displayRecord">
+            <div class="col-10">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Number</th>
+                            <th scope="col">Attendence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of attendenceStatus;let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.number}}</td>
+                            <td>
+                               <span *ngIf="user.presentStatus">Present</span>
+                               <span *ngIf="!user.presentStatus">Absent</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row pt-5" *ngIf="!displayRecord">
+            Select Date To Display Record
+        </div>
+    </div>
+</body>
+
+</html>
